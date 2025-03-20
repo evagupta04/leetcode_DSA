@@ -47,4 +47,15 @@ if you want to remove 2 while loops
 Right solution, Time complexity: O(m+n)
 We are iterating through both arrays once, so the time complexity is O(m+n).
 
+int i = m-1;
+        int j = n-1;
+        int k = m+n-1;
+        while(j>=0) {
+            if(i>=0 && nums1[i] > nums2[j]) {
+                nums1[k--] = nums1[i--];
+            }
+            else {
+                nums1[k--] = nums2[j--];
+            }
+        }
 */
