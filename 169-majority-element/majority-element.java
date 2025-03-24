@@ -37,4 +37,5 @@ int n = (nums.length)/2;
         }
         return 0;
 -------------------------------------
+solution: https://leetcode.com/problems/majority-element/solutions/3676530/3-method-s-beats-100-c-java-python-beginner-friendly/
 */
