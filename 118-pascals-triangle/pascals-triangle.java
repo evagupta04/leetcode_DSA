@@ -24,3 +24,12 @@ class Solution {
         return output;
     }
 }
+
+
+/*
+check below link for solution and TC/SC explanation
+https://leetcode.com/problems/pascals-triangle/solutions/6209724/video-adding-0-at-the-both-sides-python-javascript-java-c/
+
+TC: O(n^2) :nested loop/O(numRows^2)
+SC: O(n^2) :Considering the space used by res, dummy_row, and row, the space complexity is O(numRows^2).
+*/
