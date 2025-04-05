@@ -14,6 +14,7 @@ class RandomizedSet {
             return false;
         }
         list.add(val);
+        //list.size -1 because, index starts from 0, not 1
         map.put(val, list.size()-1);
         return true;
     }
@@ -22,6 +23,10 @@ class RandomizedSet {
         if(!map.containsKey(val)) {
             return false;
         }
+        //we are just relacing REMOVAL elemnt with last element, 
+        //and updating LAST element's index(with REMOVAL element's index)
+        //then we are revoing REMOVAL element(VAL) from map and list
+        //logic: because elements index doen't matter(not sure about it)
         int indexToRemove = map.get(val);
         int lastElement = list.get(list.size()-1);
         
