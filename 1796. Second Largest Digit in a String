@@ -1,0 +1,44 @@
+class Solution {
+    public int secondHighest(String s) {
+        int max = -1, sMax = -1;
+        //iterating whole array and executig if any character is a digit
+        for(char ch : s.toCharArray()) {
+            if(ch <= '9' && ch >= '0') {   //if (Character.isDigit(ch)) {
+                int pick = ch-'0';         //character is stored as ASCII '9'-'0' = 57-48
+                if(pick > max) {
+                    sMax = max;
+                    max = pick;
+                }
+                //pick should be greater than sMax and smaller than max, to be second largest
+                //if we do not check this, we will end up storing smallest in smax(not second smallest)
+                //double checking pick < max otherwise "String = abc1111" will return 1 instead of -1 
+                else if(pick < max && pick > sMax)  {
+                    sMax = pick;
+                }
+            }
+        }
+        return sMax;
+    }
+}
+
+/*
+
+class Solution {
+    public int secondHighest(String s) {
+        int found =0;
+        //checking for digits in string from 9-0 desc order bcz we need second LARGEST
+        //if its found then found++, because it has to be largest and we are iterating desc order
+        for(char ch='9'; ch >='0'; ch--) {
+            if(s.indexOf(ch) != -1) {
+                found++;
+            }
+            //2 because second largest number
+            if(found == 2) {
+                return ch-'0';
+            }
+        }
+        return -1;
+    }
+}
+//TC-O(n) but in worst case, it still iterate entire loop
+// No extra space, O(1) space (constant space)*/
