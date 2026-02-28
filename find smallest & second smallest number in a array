@@ -1,0 +1,30 @@
+//(One Pass, O(n) time, O(1) space)
+//find smallest & second smallest number in a array, return -1 if not found
+class Solution {
+    public static int[] smallestAndSecondSmallest(int[] arr) {
+        if (arr == null || arr.length < 2) {
+            return new int[]{-1, -1}; // or throw exception based on use-case
+        }
+        //default value for checking
+        int smallest = Integer.MAX_VALUE;
+        int secondSmallest = Integer.MAX_VALUE;
+
+        for (int num : arr) {
+            if (num < smallest) {
+                secondSmallest = smallest;
+                //there is something smalles than smallest
+                smallest = num;
+            } 
+            //if num bigger than smalles but it should also be smaller thansecondSmallest
+            else if (num > smallest && num < secondSmallest) {
+                secondSmallest = num;
+            }
+        }
+
+        if (secondSmallest == Integer.MAX_VALUE) {
+            return new int[]{smallest, -1}; // no distinct second smallest
+        }
+
+        return new int[]{smallest, secondSmallest};
+    }
+}
